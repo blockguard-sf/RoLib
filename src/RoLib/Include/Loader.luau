@@ -23,8 +23,12 @@ local ResolvePath = require(Include:WaitForChild("ResolvePath"))
 local Priorities = require(Include:WaitForChild("Priorities"))
 
 local RLLoader = {} :: {} -- (= RoLib Loader)
-RLLoader.__index = RLLoader
 RLLoader.__packages = {} :: { string: ModuleScript }
+setmetatable(RLLoader, {
+    __index = function(_, key): concat<string, concat<a, string>>
+        return "The key '" .. key .. "' does not exist in this module."
+    end
+})
 
 -- Load all packages in the library
 local Packages = {}
