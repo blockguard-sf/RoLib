@@ -1,4 +1,4 @@
---filepath: ReplicatedStorage.RoLib_Rojo.Include.RoLib.Priorities.luau
+--filepath: ReplicatedStorage.RoLib_Rojo.Include.RoLib.Priorities
 --[[
     Prioritization System for RoLib Package Loading
 

@@ -1,5 +1,5 @@
 --!nocheck
---filepath: ReplicatedStorage.RoLib_Rojo.Include.Loader.luau
+--filepath: ReplicatedStorage.RoLib_Rojo.Include.Loader
 --[[
     Entry Point of the RoLib Library Loading System
 

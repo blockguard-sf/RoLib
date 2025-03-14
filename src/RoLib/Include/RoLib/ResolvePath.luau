@@ -1,5 +1,5 @@
 --!nocheck
---filepath: ReplicatedStorage.RoLib_Rojo.Include.RoLib.ResolvePath.luau
+--filepath: ReplicatedStorage.RoLib_Rojo.Include.RoLib.ResolvePath
 --[[
     Resolves a path to a specific object in the RoLib Library.
 
