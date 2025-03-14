@@ -2,6 +2,9 @@
   "name": "RoLib",
   "tree": {
     "$className": "DataModel",
+    "ServerScriptService": {
+      "$path": "src/ServerSide"
+    },
     "ReplicatedStorage": {
       "RoLib_Rojo": {
         "$path": "src/RoLib"
