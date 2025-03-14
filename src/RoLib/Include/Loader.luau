@@ -30,8 +30,17 @@ setmetatable(RLLoader, {
     end
 })
 
--- Load all packages in the library
+-- Load all packages in the correct order
 local Packages = {}
+local function loadPackages(): ()
+    for i = 1, #Packages do
+        for name, package in pairs(Packages[i]) do
+            RLLoader.__packages[name] = require(package) :: {}
+        end
+    end
+end
+
+-- Load all packages in the library
 for _, package in ipairs(Library:GetChildren()) do
     if not package:IsA("Folder") or package.Name == "site-packages" then
         continue
@@ -58,14 +67,5 @@ for _, package in ipairs(Library:GetChildren()) do
     Packages[priority.Dependencies][metadata.Name] = indexPath
 end
 
--- Load all packages in the correct order
-function RLLoader:Load(): { RLLoader }
-    for i = 1, #Packages do
-        for name, package in pairs(Packages[i]) do
-            RLLoader.__packages[name] = require(package) :: {}
-        end
-    end
-    return RLLoader.__packages
-end
-
+loadPackages()
 return RLLoader
