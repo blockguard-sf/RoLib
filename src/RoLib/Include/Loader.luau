@@ -32,10 +32,18 @@ setmetatable(RLLoader, {
 
 -- Load all packages in the correct order
 local Packages = {}
+local PackageMetadata = {}
 local function loadPackages(): ()
     for i = 1, #Packages do
         for name, package in pairs(Packages[i]) do
             RLLoader.__packages[name] = require(package) :: {}
+            for _, metadata in pairs(PackageMetadata) do
+                if metadata.Name == name then
+                    for value, data in pairs(metadata) do
+                        RLLoader.__packages[name][value] = data
+                    end
+                end
+            end
         end
     end
 end
@@ -65,6 +73,7 @@ for _, package in ipairs(Library:GetChildren()) do
         Packages[priority.Dependencies] = {}
     end
 
+    PackageMetadata[metadata.Name] = metadata
     Packages[priority.Dependencies][metadata.Name] = indexPath
 end
 
