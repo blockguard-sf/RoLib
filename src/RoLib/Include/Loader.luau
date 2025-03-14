@@ -59,7 +59,8 @@ for _, package in ipairs(Library:GetChildren()) do
         continue
     end
 
-    local priority = Priorities.new(metadata.Dependencies)
+    local priority = Priorities.new(metadata.Name, metadata.Dependencies)
+    if priority == false then continue end
     if Packages[priority.Dependencies] == nil then
         Packages[priority.Dependencies] = {}
     end
